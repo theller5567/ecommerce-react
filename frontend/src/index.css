@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import "tailwindcss";
+
+
+
+.prata-regular {
+    font-family: "Prata", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+nav a.active {
+    hr {
+        display: block;
+    }
+}
+.mobile-menu {
+    a:hover {
+        background-color: #000;
+        color: #fff;
+        hr {
+            display: block;
+        }
+    }
+}
