@@ -2,7 +2,8 @@ import React from 'react'
 import Hero from '../components/Hero'
 import LatestCollection from '../components/LatestCollection'
 import BestSeller from '../components/BestSeller'
-import Footer from '../components/Footer'
+import OurPolicy from '../components/OurPolicy'
+import NewsletterBox from '../components/NewsletterBox'
 
 const Home = () => {
   return (
@@ -10,7 +11,8 @@ const Home = () => {
         <Hero />
         <LatestCollection />
         <BestSeller />
-        <Footer />
+        <OurPolicy />
+        <NewsletterBox />
     </div>
   )
 }

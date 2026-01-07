@@ -2,7 +2,6 @@
 @import "tailwindcss";
 
 
-
 .prata-regular {
     font-family: "Prata", serif;
     font-weight: 400;
@@ -15,12 +14,21 @@ nav a.active {
         display: block;
     }
 }
-.mobile-menu {
-    a:hover {
-        background-color: #000;
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+@media (max-width: 640px) {
+    a.active {
+        background-color: black;
         color: #fff;
-        hr {
-            display: block;
-        }
     }
 }
