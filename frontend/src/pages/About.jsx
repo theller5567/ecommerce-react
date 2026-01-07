@@ -1,6 +1,7 @@
 import React from 'react'
 import Title from '../components/Title'
 import { assets } from '../assets/assets'
+import NewsletterBox from '../components/NewsletterBox'
 
 const About = () => {
   return (
@@ -37,7 +38,7 @@ const About = () => {
           <p className="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
         </div>
       </div>
-
+    <NewsletterBox />
     </div>
   )
 }
