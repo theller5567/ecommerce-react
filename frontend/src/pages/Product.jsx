@@ -22,7 +22,7 @@ const Product = () => {
 
  useEffect(() => {
   fetchProductData()
- }, [productId])
+ }, [])
 
 
   return productData ? (
