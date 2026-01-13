@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { shopContext } from '../context/shopContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useSearchParams } from 'react-router-dom'
 
 const Verify = () => {
 
@@ -10,7 +11,6 @@ const Verify = () => {
 
     const success = searchParams.get('success')
     const orderId = searchParams.get('orderId')
-    const userId = searchParams.get('userId')
 
     const verifyPayment = async () => {
         try {

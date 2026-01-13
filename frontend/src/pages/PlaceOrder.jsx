@@ -63,13 +63,13 @@ const PlaceOrder = () => {
         }
         break
       case 'stripe':
-        const respoonseStripe = await axios.post(backendUrl + '/api/order/stripe', orderData, { headers: { token } })
-        console.log(respoonseStripe.data)
-        const { successStripe, session_url, messageStripe } = respoonseStripe.data
-        if(successStripe) {
-          window.location.replace(session_url)
+        const responseStripe = await axios.post(backendUrl + '/api/order/stripe', orderData, { headers: { token } })
+        console.log(responseStripe.data)
+        if(responseStripe.data.success) {
+          console.log('session_url: ',responseStripe.data.session_url)
+          window.location.replace(responseStripe.data.session_url)
         } else {
-          toast.error(messageStripe)
+          toast.error(responseStripe.data.message)
         }
         break;
       //API calls for Razorpay Method
