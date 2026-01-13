@@ -11,8 +11,10 @@ const deliveryCharge = 10
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 const razorpayInstance = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET
+    key_secret: process.env.RAZORPAY_SECRET_KEY
 })
+console.log("Key ID:", process.env.RAZORPAY_KEY_ID)
+
 
 // Placing orders using COD Method
 const placeOrder = async (req, res) => {
@@ -116,6 +118,7 @@ const verifyStripe = async (req, res) => {
 
 // Placing orders using Razorpay Method
 const placeOrderRazorpay = async (req, res) => {
+    
     try {
         const { userId, items, amount, address } = req.body
         const orderData = {
@@ -153,7 +156,8 @@ const placeOrderRazorpay = async (req, res) => {
 const verifyRazorpay = async (req, res) => {
     try {
         const {userId, razorpay_order_id} = req.body
-        const orderInfo = await razorpayInstance.orders.fetch({razorpay_order_id})
+        console.log("Razorpay Order ID:", razorpay_order_id)
+        const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
         if(orderInfo.status === 'paid') {
             await orderModel.findByIdAndUpdate(orderInfo.receipt, { payment: true })
             await userModel.findByIdAndUpdate(userId, { cartData: {} })

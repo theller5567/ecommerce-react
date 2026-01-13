@@ -71,6 +71,7 @@ export const ShopContextProvider = ({ children }) => {
         let totalAmount = 0;
         for(const items in cartItems) {
             let itemInfo = products.find(product => product._id === items);
+            console.log('itemInfo: ',itemInfo)
             for(const item in cartItems[items]) {
                 try {
                     if(cartItems[items][item] > 0) {
